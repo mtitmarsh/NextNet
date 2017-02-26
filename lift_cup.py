@@ -1,14 +1,13 @@
-# Author: Nic Wolfe <nic@wolfeden.ca>
-# URL: http://github.com/midgetspy/Lift-Cup
+# Author: Matthew Titmarsh <matthew@titmarsh.com>
+# URL: https://github.com/mtitmarsh/NextNet
 #
-# This file is part of Lift Cup (adapted from Sick Beard)
 #
-# Sick Beard is free software: you can redistribute it and/or modify
+# NextNet is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# Sick Beard is distributed in the hope that it will be useful,
+# NextNet is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
@@ -33,7 +32,7 @@ except ImportError:
     print "No config found, check that you have a conf.py file"
     sys.exit(1)
 
-LC_VERSION = 0.1
+NEXTNETVER = 0.1
 
 scene_qualities = {Quality.SDTV: "SDTV.XviD",
            Quality.SDDVD: "DVDRip.XviD",
@@ -261,7 +260,7 @@ class LiftCup(object):
         nfo.write('Original name: '+old_name+'\n')
         if nfo_string:
             nfo.write(nfo_string+'\n')
-        nfo.write('Lift Cup '+str(LC_VERSION)+'\n')
+        nfo.write('Next Net '+str(NEXTNETVER)+'\n')
         nfo.close
 
     def lift_cup(self):
