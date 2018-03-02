@@ -1,7 +1,10 @@
-# Author: Nic Wolfe <nic@wolfeden.ca>
+# Original Author: Nic Wolfe <nic@wolfeden.ca>
 # URL: http://code.google.com/p/sickbeard/
 #
-# This file is part of Lift Cup (adapted from Sick Beard)
+# Maintainer: Matthew Titmarsh <matthew@titmarsh.com>
+# URL: https://github.com/Mtitmarsh/NextNet
+#
+# This file is part of NextNet (adapted from Lift Cup)
 #
 # Sick Beard is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -42,9 +45,10 @@ class Quality:
                       HDTV: "HD TV",
                       HDWEBDL: "720p WEB-DL",
                       HDBLURAY: "720p BluRay",
-					  FULLHDBLURAY: "1080p BluRay",
-					  HDTVHVEC: "HD TV",
-					  SDTVHVEC: "SD TV"}
+                      FULLHDBLURAY: "1080p BluRay",
+                      HDTVHVEC: "HD TV",
+                      SDTVHVEC: "SD TV"
+                      }
 
     @staticmethod
     def _getStatusStrings(status):
