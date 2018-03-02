@@ -36,14 +36,15 @@ except ImportError:
 NEXTNETVER = 0.1
 
 scene_qualities = {Quality.SDTV: "SDTV.XviD",
-           Quality.SDDVD: "DVDRip.XviD",
-           Quality.HDTV: "720p.HDTV.x264",
-           Quality.HDWEBDL: "720p.WEB-DL",
-           Quality.HDBLURAY: "720p.BluRay.x264",
-           Quality.FULLHDBLURAY: "1080p.BluRay.x264",
-		   Quality.HDTVHVEC: "HDTV.HVEC.x265",
-		   Quality.SDTVHVEC: "SDTV.HVEC.x265",
-          }
+                   Quality.SDDVD: "DVDRip.XviD",
+                   Quality.HDTV: "720p.HDTV.x264",
+                   Quality.HDWEBDL: "720p.WEB-DL",
+                   Quality.HDBLURAY: "720p.BluRay.x264",
+                   Quality.FULLHDBLURAY: "1080p.BluRay.x264",
+                   Quality.HDTVHVEC: "HDTV.HVEC.x265",
+                   Quality.SDTVHVEC: "SDTV.HVEC.x265",
+                   }
+
 
 class LiftCup(object):
 
@@ -67,7 +68,7 @@ class LiftCup(object):
                 except OSError:
                     print "Error:", "No permissions to create ", LOG_DIR
                     sys.exit(1)
-            self.log_file = open(os.path.join(LOG_DIR, 'lc_log.'+self.file+'.txt'), 'w')
+            self.log_file = open(os.path.join(LOG_DIR, 'NextNet_log.'+self.file+'.txt'), 'w')
 
         # if we don't have a valid quality from the config then try to convert the string
         if quality and quality not in Quality.qualityStrings:
@@ -84,7 +85,6 @@ class LiftCup(object):
         if not os.path.isfile(full_file_path):
             self.logger("Error:", full_file_path, "does not exist.")
             sys.exit(1)
-
 
     def logger(self, *args, **kwargs):
         message = str(datetime.datetime.today()) + ' ' + ' '.join([str(x) for x in args])
@@ -239,7 +239,7 @@ class LiftCup(object):
             scene_match = re.match(base_name, '(.*\S)\-(\S+)' )
 
             if not scene_match:
-                scene_name = base_name + '.' + scene_qualities[cur_quality] + (" F1rebladerunner") + extension				
+                scene_name = base_name + '.' + scene_qualities[cur_quality] + (" NextNet") + extension
             else:
                 scene_name = scene_match.group(1) + '.' + scene_qualities[cur_quality] + '-' + scene_match.group(2) + extension
 
@@ -312,5 +312,4 @@ class LiftCup(object):
             if os.path.isdir(os.path.join(TEMP_DIR, scene_base_name)):
                 shutil.rmtree(os.path.join(TEMP_DIR, scene_base_name))
 
-		self.logger("Would you look at that, it all posted fine")
-				
+                self.logger("Would you look at that, it all posted fine")
