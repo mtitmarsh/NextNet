@@ -6,18 +6,15 @@
 #
 # This file is part of NextNet (adapted from Lift Cup)
 #
-# Sick Beard is free software: you can redistribute it and/or modify
+# Next Net is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# Sick Beard is distributed in the hope that it will be useful,
+# Next Net is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Sick Beard.  If not, see <http://www.gnu.org/licenses/>.
 
 import os.path
 import operator, platform
@@ -108,9 +105,9 @@ class Quality:
             return Quality.HDBLURAY
         elif checkName(["1080p", "bluray", "x264"], all) or checkName(["1080p", "hddvd", "x264"], all):
             return Quality.FULLHDBLURAY
-	elif checkName(["hdtv", "HVEC", "x265"], all) or checkName(["hr.ws.pdtv.x265"], any):
+        elif checkName(["hdtv", "HVEC", "x265"], all) or checkName(["hr.ws.pdtv.x265"], any):
             return Quality.HDTVHVEC
-	elif checkName(["pdtv.xvid", "HVEC", "x265"], any) and not checkName(["720p"], all):
+        elif checkName(["pdtv.xvid", "HVEC", "x265"], any) and not checkName(["720p"], all):
             return Quality.SDTVHVEC
         else:
             return Quality.UNKNOWN
@@ -119,12 +116,12 @@ class Quality:
     def assumeQuality(name):
 
         if name.lower().endswith(".avi"):
-            return Quality.SDDVD
+            return Quality.SDTV
         elif name.lower().endswith(".mkv"):
-            return Quality.SDDVD
-	elif name.lower().endswith(".mp4"):
-            return Quality.SDDVD
-	elif name.lower().endswith(".vob"):
+            return Quality.HDTV
+        elif name.lower().endswith(".mp4"):
+            return Quality.HDTVHVEC
+        elif name.lower().endswith(".vob"):
             return Quality.SDDVD
         else:
             return Quality.UNKNOWN
