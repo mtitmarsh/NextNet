@@ -1,22 +1,21 @@
 #!/usr/bin/env python
 
-# Author: Nic Wolfe <nic@wolfeden.ca>
-# URL: http://github.com/midgetspy/Lift-Cup
+# Author: Matthew Titmarsh <matthew@titmarsh.com>
+# URL: https://github.com/mtitmarsh/NextNet
 #
-# This file is part of Lift Cup (adapted from Sick Beard)
 #
-# Sick Beard is free software: you can redistribute it and/or modify
+# NextNet is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# Sick Beard is distributed in the hope that it will be useful,
+# NextNet is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with Sick Beard.  If not, see <http://www.gnu.org/licenses/>.
+# along with NextNet.  If not, see <http://www.gnu.org/licenses/>.
 
 import sys
 import os.path
@@ -24,10 +23,10 @@ import getopt
 
 from quality import Quality
 
-from lift_cup import LC_VERSION, LiftCup
+from lift_cup import NEXTNETVER, LiftCup
 
 def usage():
-    print "Lift Cup "+str(LC_VERSION)
+    print "NextNet "+str(NEXTNETVER)
     print "Usage:", sys.argv[0], "<file path> [quality]"
     print "Options:"
     print " --debug: prints debug info to console instead of just the log"
@@ -77,6 +76,6 @@ if __name__ == '__main__':
             SKIP_QUALITY = True
     
     for cur_file_path in file_path_list:
-        print "Calling Lift Cup for file", cur_file_path 
+        print "Calling NextNet for file", cur_file_path 
         lc = LiftCup(cur_file_path, DEFAULT_QUALITY, not NOLOG, TEST, DEBUG, not NOCLEANUP, not NOUPLOAD, SKIP_QUALITY)
         lc.lift_cup()
